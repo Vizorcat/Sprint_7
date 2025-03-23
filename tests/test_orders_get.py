@@ -10,3 +10,4 @@ class TestOrdersListGet:
     def test_orders_list_get_success(self):
         response = requests.get(Urls.URL_orders_create)
         assert type(response.json()['orders']) == list and 'id' in response.json()['orders'][0]
+        assert response.status_code == 200, f"Expected status code 200, but got {response.status_code}"
